@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t1</title>
+    <link href="css/e1.css" rel="stylesheet" type="text/css">
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    <link href="css/checkDemo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="content">
+    <div class="box">
+        <span id="move"></span>
+        <ul>
+            <li class="nav-list">首页新闻</li>
+            <li class="nav-list">活动策划</li>
+            <li class="nav-list">师资力量</li>
+            <li class="nav-list">企业文化</li>
+            <li class="nav-list" id="dd">
+                招聘信息
+                <div class="down">
+                    <div class="down-list">本科生</div>
+                    <div class="down-list" style="border-top: 1px solid #666666">研究生</div>
+                </div>
+            </li>
+            <li class="nav-list">公司简介</li>
+            <li class="nav-list">上海校区</li>
+            <li class="nav-list">广州校区</li>
+        </ul>
+    </div>
+    <div class="wrap" id="wrap">
+        <div class="slide" id="slide">
+            <ul>
+                <!--五张图片-->
+                <li class="img-list"><a href="#"><img src="../images/lol1.jfif" alt=""/></a></li>
+                <li class="img-list"><a href="#"><img src="../images/lol2.jfif" alt=""/></a></li>
+                <li class="img-list"><a href="#"><img src="../images/lol5.jfif" alt=""/></a></li>
+                <li class="img-list"><a href="#"><img src="../images/lol4.jfif" alt=""/></a></li>
+                <li class="img-list"><a href="#"><img src="../images/lol3.jfif" alt=""/></a></li>
+                <li class="img-list"><a href="#"><img src="../images/lol6.jfif" alt=""/></a></li>
+            </ul>
+            <!--左右切换按钮-->
+            <div class="arrow" id="arrow">
+                <a href="javascript:;" class="prev"></a>
+                <a href="javascript:;" class="next"></a>
+            </div>
+        </div>
+    </div>
+    <div class="table">
+        <div>
+            <input type="button" value="添加数据" id="j_btnAddData" class="btnAdd"
+                   style="margin-left: 23%;border-radius: 10px;border: none;font-size: 14px;cursor: pointer;margin-bottom: 10px"/>
+        </div>
+        <table>
+            <thead style="width: 100%">
+            <tr>
+                <!-- <th><input type="checkbox" id="j_cbAll" /></th> -->
+                <th>英雄名称</th>
+                <th>所属地区</th>
+                <th>已熟练</th>
+            </tr>
+            </thead>
+            <tbody id="j_tb" style="width: 100%">
+            <tr>
+                <!-- <td><input type="checkbox"/></td> -->
+                <td>暴走萝莉</td>
+                <td>祖安</td>
+                <td><a href="javascrip:;" class="get">GET</a></td>
+            </tr>
+            <tr>
+                <!-- <td><input type="checkbox"/></td> -->
+                <td>皮城执法官</td>
+                <td>皮城</td>
+                <td><a href="javascrip:;" class="get">GET</a></td>
+            </tr>
+            <tr>
+                <!-- <td><input type="checkbox"/></td> -->
+                <td>未来守护者</td>
+                <td>皮城</td>
+                <td><a href="javascrip:;" class="get">GET</a></td>
+            </tr>
+            <tr>
+                <!-- <td><input type="checkbox"/></td> -->
+                <td>机械先驱</td>
+                <td>祖安</td>
+                <td><a href="javascrip:;" class="get">GET</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="j_mask" class="mask"></div>
+    <div id="j_formAdd" class="form-add">
+        <div class="form-add-title">
+            <span>添加数据</span>
+            <div id="j_hideFormAdd">x</div>
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtLesson">英雄名称：</label>
+            <input class="txt" type="text" id="j_txtLesson" placeholder="请输入英雄名称">
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtBelSch">所属地区：</label>
+            <input class="txt" type="text" id="j_txtBelSch" placeholder="皮城/祖安">
+        </div>
+        <div class="form-submit">
+            <input type="button" value="添加" id="j_btnAdd">
+        </div>
+    </div>
+    <div class="lager">
+        <div class="small">
+            <img src="../images/bone2.jfif" alt=""/>
+            <div class="mask2"></div>
+        </div>
+        <div class="big">
+            <img src="../images/bone.jfif" alt=""/>
+        </div>
+    </div>
+    <img id="jd" src="../images/yasuo.jfif" style="cursor: pointer;"/>
+    <div style="position: absolute;right: 300px;top: 1000px">
+        <a href="http://localhost:63342/test/vue/src/E4/e2/index.html?_ijt=nn09lqt405heb82fc5bonr0hi5" style="text-decoration: none;color: black">下一页更精彩</a>
+    </div>
+</div>
+</body>
+<script src="js/animate.js"></script>
+<script src="js/jquery1.0.0.1.js"></script>
+<script src="js/e1.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    jQuery(function () {
+        //需求1：点击按钮显示遮罩层和添加数据表格
+        //需求2：点击里面的关闭按钮隐藏遮罩层和添加数据表格
+        //需求3：点击get所在的标签，删除所在的tr
+        //需求4：点击里面的添加内容，全部能容这个成tr嵌套td的形式添加到tbody中
+
+
+        //需求1：点击按钮显示遮罩层和添加数据表格
+        $("#j_btnAddData").click(function () {
+            //显示遮罩层和j_formAdd这个盒子
+            $("#j_mask").show();
+            $("#j_formAdd").show();
+        });
+
+        //需求2：点击里面的关闭按钮隐藏遮罩层和添加数据表格
+        $("#j_hideFormAdd").click(function () {
+            //显示遮罩层和j_formAdd这个盒子
+            $("#j_mask").hide();
+            $("#j_formAdd").hide();
+        });
+
+        //需求3：点击get所在的标签，删除所在的tr
+        $("a.get").click(function () {
+            //删除的是所在的tr。
+            $(this).parent("td").parent("tr").remove();
+        });
+
+        //需求4：点击里面的添加内容，全部能容这个成tr嵌套td的形式添加到tbody中
+        $("#j_btnAdd").click(function () {
+            //bug1： 内容不能为空
+            if($("#j_txtLesson").val() === ""){
+                alert("内容不能为空！");
+                return;
+            }
+
+            //全部能容这个成tr嵌套td的形式添加到tbody中
+            //获取tr，然后为tr赋值。
+            var tr = $("<tr></tr>");
+            //赋值
+            tr.html('<td>'+$("#j_txtLesson").val()+'</td><td>'+$("#j_txtBelSch").val()+'</td><td><a href="javascrip:;" class="get">GET</a></td>');
+            //在房间tbody中
+            $("#j_tb").append(tr);
+
+
+            //bug3：新产生的tr没有时间绑定
+            tr.find("a").click(function () {
+                //删除的是所在的tr。
+                tr.remove();
+            });
+            //问题代码
+//                var str = $("#j_tb").html();
+//                str += "<tr><td>111</td></tr>";
+//                console.log(str);
+//                $("#j_tb").html(str);
+//                console.log($("#j_tb").html())
+
+            //显示遮罩层和j_formAdd这个盒子
+            $("#j_mask").hide();
+            $("#j_formAdd").hide();
+            //bug2:设置完毕，清空内容
+            $("#j_txtLesson").val("");
+        });
+    });
+</script>
+<script>
+    var box = document.getElementsByClassName("lager")[0];
+    var small = box.firstElementChild || box.firstChild;
+    var big = box.children[1];
+    var mask = small.children[1];
+    var bigImg = big.children[0];
+
+    //1.鼠标放上去显示盒子，移开隐藏盒子。(为小盒子绑定事件)
+    small.onmouseenter = function () {
+        //封装好方法调用：显示元素
+        show(mask);
+        show(big);
+    }
+    small.onmouseleave = function () {
+        //封装好方法调用：隐藏元素
+        hide(mask);
+        hide(big);
+    }
+
+    //2.老三步和新五步（黄盒子跟随移动）
+    //绑定的事件是onmousemove，而事件源是small(只要在小盒子上移动1像素，黄盒子也要跟随)
+    small.onmousemove = function (event) {
+        //想移动黄盒子，必须知道鼠标在small中的位置。x作为mask的left值，y作mask的top值。
+        //新五步
+        event = event || window.event;
+        var pagex = event.pageX || scroll().left + event.clientX;
+        var pagey = event.pageY || scroll().top + event.clientY;
+        //让鼠标在黄盒子最中间，减去黄盒子宽高的一半
+        var x = pagex - box.offsetLeft - mask.offsetWidth/2;
+        var y = pagey - box.offsetTop - mask.offsetHeight/2;
+        //限制换盒子的范围
+        //left取值为大于0，小盒子的宽-mask的宽。
+        if(x<0){
+            x = 0;
+        }
+        if(x>small.offsetWidth-mask.offsetWidth){
+            x = small.offsetWidth-mask.offsetWidth;
+        }
+        //top同理。
+        if(y<0){
+            y = 0;
+        }
+        if(y>small.offsetHeight-mask.offsetHeight){
+            y = small.offsetHeight-mask.offsetHeight;
+        }
+        //移动黄盒子
+        console.log(small.offsetHeight);
+        mask.style.left = x + "px";
+        mask.style.top = y + "px";
+
+        //3.右侧的大图片，等比例移动。
+        //如何移动大图片？等比例移动。
+        //    大图片/大盒子 = 小图片/mask盒子
+        //    大图片走的距离/mask走的距离 = （大图片-大盒子）/（小图片-黄盒子）
+//                var bili = (bigImg.offsetWidth-big.offsetWidth)/(small.offsetWidth-mask.offsetWidth);
+
+        //大图片走的距离/mask盒子都的距离 = 大图片/小图片
+        var bili = bigImg.offsetWidth/small.offsetWidth;
+
+        var xx = bili*x;
+        var yy = bili*y;
+
+
+        bigImg.style.marginTop = -yy+"px";
+        bigImg.style.marginLeft = -xx+"px";
+    }
+
+</script>
+<script>
+
+</script>
+</html>

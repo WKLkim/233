@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery Mobile创建的第一个网页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--引用jQuery Mobile函数库-->
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.mobile-1.4.0.min.js"></script>
+<!--最佳化屏幕宽度-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+#content{text-align:center;}
+	.list{
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	a{
+		text-decoration: none;
+	}
+	#first{
+		width: 100%;
+		height: 100vh;
+	}
+</style>
+</head>
+<body>
+	<!--第一页-->
+	<div data-role="page" data-title="广工新闻" id="first">
+		<div data-role="header" >
+			<h1>广工新闻</h1>
+		</div>
+		<div style="margin-top: 25vh">
+			<div data-role="content" id="content1" style="display: flex;justify-content: center;flex-wrap: wrap">
+				<a class="list" href="https://news.qq.com/" style="color: #666666">
+					<img src="../images/tencent.png">
+					腾讯新闻
+				</a>
+				<a class="list" href="https://www.toutiao.com/"  style="color: #666666">
+					<img src="../images/news.png">
+					今日头条
+				</a>
+			</div>
+			<div data-role="content" id="content2" style="display: flex;justify-content: center;flex-wrap: wrap">
+				<a class="list" href="https://baike.baidu.com/item/%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E9%99%A2/2375245?fr=aladdin"  style="color: #666666">
+					<img src="../images/computer.png">
+					计算机
+				</a>
+				<a class="list" href="https://login.taobao.com/"  style="color: #666666">
+					<img src="../images/taobao.png">
+					手机淘宝
+				</a>
+			</div>
+			<div style="text-align: center">
+				<a href="#second"  style="color: #666666;">
+					下一页更精彩
+				</a>
+			</div>
+		</div>
+		<div data-role="footer" style="position: fixed;bottom: 0;width: 100%">
+			<h4>广工地址电话</h4>
+		</div>
+		</div>
+	<!--第二页-->
+	<div data-role="page" data-title="第二页" id="second">
+		<div data-role="header">
+			<a data-rel="back">回上页</a>
+			<h1>第二页</h1>
+		</div>
+		<div data-role="content" id="content3">
+			<a href="#first">返回第一页</a>
+		</div>
+		<div data-role="footer">
+			<h4>广工地址电话</h4>
+		</div>
+	</div>
+</body>
+</html>
