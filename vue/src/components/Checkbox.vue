@@ -1,3 +1,4 @@
+// 多选框组件
 <template>
     <div style="width: 100%">
         <div style="display: flex;justify-content: center;">

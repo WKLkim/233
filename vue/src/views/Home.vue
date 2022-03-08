@@ -68,14 +68,30 @@ export default {
     }
   },
   created() {
-    let username = sessionStorage.getItem("username");          //是否已登录
-    if (username != null) {
+    let username = this.getCookie('username');          //是否已登录
+    if (username) {
       this.load();
+      this.$store.state.username = username;
       console.log(username + '已登录');
     }
     else this.$router.push("/");
   },
   methods: {
+    getCookie(cname){
+      let name = cname + "=";
+      console.log(document.cookie);
+      let cookieArray = document.cookie.split(';');       //cookie数组，以;为间隔
+      console.log(cookieArray);
+      for(var i = 0;i < cookieArray.length; i++){
+          let c = cookieArray[i].trim();                  //去除前后空格
+          if(c.indexOf(name) == 0){                       //返回出现字符串的第一个位置
+              console.log(c.substring(name.length, c.length));
+              return c.substring(name.length, c.length);
+          }
+      }
+      console.log('无对应cookie数据');
+      return false;
+    },
     load() {
       request.get("/api/goods",{
         params: {

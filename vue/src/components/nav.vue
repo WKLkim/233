@@ -19,7 +19,7 @@
             <el-sub-menu index="2">
                 <template #title>更多</template>
                 <el-menu-item index="2-1" @click="email">联系我们</el-menu-item>
-                <el-menu-item index="2-2" @click="this.$router.push('/')">退出系统</el-menu-item>
+                <el-menu-item index="2-2" @click="exit()">退出系统</el-menu-item>
             </el-sub-menu>
         </el-menu>
     </div>
@@ -34,12 +34,21 @@
         },
         data() {
           return {
-              username: sessionStorage.getItem("username"),
+              username: this.$store.state.username,
           }
         },
         methods: {
             email() {
                 alert('1256174238@qq.com')
+            },
+            exit() {
+                this.$router.push('/');
+                // 删除所有cookie数据
+                var keys=document.cookie.match(/[^ =;]+(?=)/g);
+                if (keys) {
+                    for (var i =  keys.length; i--;)
+                    document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString()
+                }   
             }
         }
     }
