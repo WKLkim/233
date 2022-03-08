@@ -10,11 +10,11 @@
 - 借助Springboot,mybatis完成后端接口的编写，与数据库进行数据更新操作。
 
 截图：
-![Image text](./img/screenshot_1.png)
+![Image text](./screenshot/screenshot_1.png)
 
-![Image text](./img/screenshot_2.png)
+![Image text](./screenshot/screenshot_2.png)
 
-![Image text](./img/screenshot_3.png)
+![Image text](./screenshot/screenshot_3.png)
 
-![Image text](./img/screenshot_4.png)
+![Image text](./screenshot/screenshot_4.png)
 
